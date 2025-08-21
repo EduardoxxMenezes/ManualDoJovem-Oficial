@@ -20,6 +20,12 @@ export class User {
     @Column({ type: "varchar", length: 255, nullable: false })
     userPassword: string;
 
+    @Column({ type: "varchar", length: 255, nullable: true })
+    resetPasswordToken: string | null;
+
+    @Column({ type: "datetime", nullable: true })
+    resetPasswordExpires: Date | null;
+
     oldPassword?: string;
 
     @OneToMany(() => Article, (article) => article.autor)
@@ -40,6 +46,8 @@ export class User {
         this.userEmail = userEmail;
         this.userPassword = userPassword;
         this.profilePic = profilePic;
+        this.resetPasswordToken = null;
+        this.resetPasswordExpires = null;
         if (articles) this.articles = articles;
         if (comments) this.comments = comments;
     }
@@ -50,13 +58,13 @@ export class User {
         this.userPassword = await bcrypt.hash(this.userPassword, salt);
     }
     
-@BeforeUpdate()
-async hashPasswordBeforeUpdate() {
-    if (this.oldPassword && this.userPassword !== this.oldPassword) {
-        const salt = await bcrypt.genSalt(10);
-        this.userPassword = await bcrypt.hash(this.userPassword, salt);
+    @BeforeUpdate()
+    async hashPasswordBeforeUpdate() {
+        if (this.oldPassword && this.userPassword !== this.oldPassword) {
+            const salt = await bcrypt.genSalt(10);
+            this.userPassword = await bcrypt.hash(this.userPassword, salt);
+        }
     }
-}
 
     setPreviousPassword(password: string) {
         this.oldPassword = password;
