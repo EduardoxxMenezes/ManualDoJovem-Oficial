@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato</title>
+  <link rel="icon" href="./img/newLogo.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/globalStyle.css" />
+  <link rel="stylesheet" href="./css/contact.css" />
+</head>
+
+<body>
+  <header
+    class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"
+    style="
+        display: flex;
+        width: 100vw;
+        height: 13vh;
+        background: linear-gradient(50deg, #9e9e9e, #6b4c9a);
+      ">
+    <div class="col-md-3 mb-2 mb-md-0">
+      <a href="./home.html" class="d-inline-flex align-items-center text-decoration-none">
+        <img src="./img/newLogoWhite.png" alt="Logo" width="60" height="50" class="me-2" />
+        <span class="text-white fs-4">Manual do Jovem</span>
+      </a>
+    </div>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0" id="headerOptions">
+      <li>
+        <a href="./professional-screen.html" class="nav-link px-2 icon-home active" style="color: white">Profissional</a>
+      </li>
+      <li>
+        <a href="./financial-screen.html" class="nav-link px-2 icon-create active" style="color: white">
+          Financeiro</a>
+      </li>
+      <li>
+        <a href="./personal-screen.html" class="nav-link px-2 icon-personal active" style="color: white">Pessoal</a>
+      </li>
+    </ul>
+
+    <div id="photoDiv">
+      <button id="photoBtn" type="button">
+        <img src="./img/fotoPadrao.png" alt="Foto Perfil" id="photoImg" />
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="infoDiv" class="hidden">
+      <a href="./editProfile.html" class="profileLink">Editar Perfil</a>
+      <hr>
+      <a href="./contact.html" class="profileLink">Entrar em contato</a>
+      <hr>
+      <a href="./resetPassword.html" class="profileLink">Redefinir Senha</a>
+      <hr class="areaOptionsLink">
+      <a href="./professional-screen.html" class="areaOptionsLink"><b>Área Profissional</b></a>
+      <hr class="areaOptionsLink">
+      <a href="./financial-screen.html" class="areaOptionsLink"><b>Área Financeira</b></a>
+      <hr class="areaOptionsLink">
+      <a href="./personal-screen.html" class="areaOptionsLink"><b>Área Pessoal</b></a>
+      <hr>
+      <a href="../index.html" class="profileLink" style="color: red;"><b>Sair</b></a>
+    </div>
+
+    <div class="contactInfo">
+      <h2>Entre em contato conosco!</h2>
+      <form action="" id="contactForm">
+        <textarea id="contactText" placeholder="Escreva sua dúvida ou sua reclamação"></textarea>
+        <button id="sendBtn" type="button" class="buttonTheme">ENVIAR</button>
+      </form>
+      <p>ou</p>
+      <a href="https://mail.google.com/mail/?extsrc=mailto&url=mailto:suportemanualdojovem@gmail.com?subject=Olá Manual do Jovem.&body=Teste" target="_blank"
+        id="supportEmail">suportemanualdojovem@gmail.com</a>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Desenvolvido por TDS. Todos os direitos reservados.</p>
+    </footer>
+  </main>
+
+  <script src="./js/sendEmail.js"></script>
+  <script src="./js/Users/changeProfilePhoto.js"></script>
+  <script src="./js/Articles/optionsArea.js"></script>
+</body>
+
+</html>

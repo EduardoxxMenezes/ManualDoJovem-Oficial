@@ -1,0 +1,48 @@
+form {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#createArticleForm {
+  margin-top: 20px;
+}
+
+form .form-label {
+  font-weight: bold;
+}
+
+textarea {
+  resize: none;
+}
+
+#category {
+  cursor: pointer;
+}
+
+#previewDiv {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#createArticleBtn {
+  color: black;
+  width: 30%;
+  margin-top: 2%;
+  background-color: rgb(211, 211, 211);
+}
+
+#titlePreview {
+  color: #333;
+}
+
+#contentPreview {
+  color: #555;
+}
+
+#titlePreview, #contentPreview, #descriptionPreview {
+  word-break: break-word;
+}

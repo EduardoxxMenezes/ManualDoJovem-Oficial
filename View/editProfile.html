@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editar</title>
+
+  <link rel="icon" href="./img/newLogo.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/globalStyle.css" />
+  <link rel="stylesheet" href="./css/editProfile.css" />
+</head>
+
+<body>
+  <header
+    class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"
+    style="
+        display: flex;
+        width: 100vw;
+        height: 13vh;
+         background: linear-gradient(50deg, #9e9e9e, #6b4c9a);
+      ">
+    <div class="col-md-3 mb-2 mb-md-0">
+      <a href="./home.html" class="d-inline-flex align-items-center text-decoration-none">
+        <img src="./img/newLogoWhite.png" alt="Logo" width="60" height="50" class="me-2" />
+        <span class="text-white fs-4" id="Textologo">Manual do Jovem</span>
+      </a>
+    </div>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0" id="headerOptions">
+      <li>
+        <a href="./professional-screen.html" class="nav-link px-2 icon-home active" style="color: white">Profissional</a>
+      </li>
+      <li>
+        <a href="./financial-screen.html" class="nav-link px-2 icon-create active" style="color: white">
+          Financeiro</a>
+      </li>
+      <li>
+        <a href="./personal-screen.html" class="nav-link px-2 icon-enroll active" style="color: white">Pessoal</a>
+      </li>
+    </ul>
+
+    <div id="photoDiv">
+      <button id="photoBtn" type="button">
+        <img src="./img/fotoPadrao.png" alt="Foto Perfil" id="photoImg" />
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="infoDiv" class="hidden">
+      <a href="./editProfile.html" class="profileLink">Editar Perfil</a>
+      <hr>
+      <a href="./contact.html" class="profileLink">Entrar em contato</a>
+      <hr>
+      <a href="./resetPassword.html" class="profileLink">Redefinir Senha</a>
+      <hr class="areaOptionsLink">
+      <a href="./professional-screen.html" class="areaOptionsLink"><b>Área Profissional</b></a>
+      <hr class="areaOptionsLink">
+      <a href="./financial-screen.html" class="areaOptionsLink"><b>Área Financeira</b></a>
+      <hr class="areaOptionsLink">
+      <a href="./personal-screen.html" class="areaOptionsLink"><b>Área Pessoal</b></a>
+      <hr>
+      <a href="../index.html" class="profileLink" style="color: red;"><b>Sair</b></a>
+    </div>
+
+    <div id="contentDiv">
+      <h2 id="confPerfil">Configure seu perfil</h2>
+      <section id="formsDiv">
+        <input type="text" id="nameChange" placeholder="Alterar nome de usuário" />
+        <input type="email" id="emailChange" placeholder="Alterar email" />
+        <button class="buttonTheme" id="updateBtn">ALTERAR INFORMAÇÕES</button>
+        <button class="buttonTheme" id="deleteBtn">EXCLUIR CONTA</button>
+      </section>
+    </div>
+
+    <div id="profilePhotoDiv">
+      <form for="file" class="file-input">
+        <div class="drop-zone" id="dropZone">
+          <p id="text"><b>Selecione/solte</b> sua nova foto</p>
+        </div>
+        <input type="file" id="fileInput" />
+      </form>
+      <button id="changePhoto" onclick="removePicture()" class="buttonTheme">
+        Remover foto de perfil
+      </button>
+    </div>
+
+    <div id="whiteSpace"></div>
+    <footer>
+      <p>&copy; 2025 Desenvolvido por TDS. Todos os direitos reservados.</p>
+    </footer>
+    <div id="confirmModal"
+      style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.5); z-index:999;">
+      <div
+        style="background:white; padding:20px; border-radius:8px; max-width:300px; margin:100px auto; text-align:center;">
+        <p>Tem certeza que deseja deletar?</p>
+        <button id="confirmDeleteBtn">Sim</button>
+        <button id="cancelDeleteBtn">Cancelar</button>
+      </div>
+    </div>
+  </main>
+  <script src="./js/Users/changeProfilePhoto.js"></script>
+  <script src="./js/Articles/optionsArea.js"></script>
+</body>
+
+</html>

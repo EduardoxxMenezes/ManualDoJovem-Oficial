@@ -1,0 +1,152 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.container h2 {
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 18px;
+}
+
+#contentDiv {
+  width: 400px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#formsDiv {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#formsDiv>input {
+  width: 300px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.buttonTheme {
+  width: 80%;
+  margin-top: 4px;
+  color: black;
+}
+#changePhoto{
+  color: red;
+}
+#confPerfil{
+color: black;
+}
+
+#updateBtn{
+  color: blue;
+}
+
+#deleteBtn{
+  color: red;
+}
+
+.buttonTheme:hover{
+  color: white
+}
+
+#profilePhotoDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.file-input {
+  width: 200px;
+  height: 200px;
+  background-color: #eee;
+  display: grid;
+  grid-template-areas: "stack";
+  border-radius: 200px;
+  cursor: pointer;
+}
+
+.file-input>* {
+  grid-area: stack;
+}
+
+#fileInput {
+  cursor: pointer;
+  opacity: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 200px;
+}
+
+.file-input>.drop-zone {
+  width: 200px;
+  height: 200px;
+  border: dashed 2px hsl(0, 0%, 67%);
+  border-radius: 200px;
+  text-align: center;
+}
+
+.file-input.active>.drop-zone {
+  background-color: #19335a;
+}
+
+.drop-zone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 200ms;
+  position: relative;
+}
+
+.drop-zone p {
+  z-index: 99;
+  text-shadow: rgba(18, 18, 18, 0.5) 1px 0 20px;
+}
+
+.drop-zone img {
+  width: 200px;
+  height: 200px;
+  border-radius: 200px;
+  position: absolute;
+  z-index: 0;
+  opacity: 0.8;
+  transition: opacity 500ms;
+  object-fit: cover;
+}
+
+.file-input:hover .drop-zone>img {
+  opacity: 0.1;
+}
+
+#changePhoto {
+  width: 200px;
+  height: 50px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 376px) and (max-height: 668px) {
+  #contentDiv {
+    margin-top: 20px;
+  }
+
+  #profilePhotoDiv  {
+    margin-top: 0;
+  }
+
+  .container  {
+    gap: 10px;
+  }
+}

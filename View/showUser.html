@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil do Usuário</title>
+
+  <link rel="icon" href="./img/newLogo.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/globalStyle.css" />
+  <link rel="stylesheet" href="./css/editProfile.css" />
+  <link rel="stylesheet" href="./css/showUser.css">
+</head>
+
+<body>
+  <header
+    class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"
+    style="display: flex; width: 100vw; height: 13vh; background: linear-gradient(50deg, #9e9e9e, #6b4c9a);">
+    <div class="col-md-3 mb-2 mb-md-0">
+      <a href="./home.html" class="d-inline-flex align-items-center text-decoration-none">
+        <img src="./img/newLogoWhite.png" alt="Logo" width="60" height="50" class="me-2" />
+        <span class="text-white fs-4" id="Textologo">Manual do Jovem</span>
+      </a>
+    </div>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0" id="headerOptions">
+      <li>
+        <a href="./professional-screen.html" class="nav-link px-2 icon-home active" style="color: white">Profissional</a>
+      </li>
+      <li>
+        <a href="./financial-screen.html" class="nav-link px-2 icon-create active" style="color: white">Financeiro</a>
+      </li>
+      <li>
+        <a href="./personal-screen.html" class="nav-link px-2 icon-enroll active" style="color: white">Pessoal</a>
+      </li>
+    </ul>
+
+    <div id="photoDiv">
+      <img src="./img/fotoPadrao.png" alt="Foto Perfil" id="photoImg" class="rounded-circle" width="50" height="50"/>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="contentDiv">
+      <h2 id="titleUser">Informações do Usuário</h2>
+
+      <section id="userInfo" class="p-3 border rounded" style="background-color: #f8f8f8;">
+        <div class="text-center mb-3">
+          <img id="profilePhoto" src="./img/fotoPadrao.png" alt="Foto do Usuário" class="rounded-circle" width="120" height="120">
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label"><b>Nome:</b></label>
+          <p id="displayName">Carregando...</p>
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label"><b>Email:</b></label>
+          <p id="displayEmail">Carregando...</p>
+        </div>
+
+        <div class="text-center mt-3">
+          <a href="./editProfile.html" id="edt" class="buttonTheme">Editar Perfil</a>
+        </div>
+      </section>
+    </div>
+
+    <footer class="mt-5 text-center">
+      <p>&copy; 2025 Desenvolvido por TDS. Todos os direitos reservados.</p>
+    </footer>
+  </main>
+
+  <script src="./js/Users/showUser.js"></script>
+</body>
+
+</html>

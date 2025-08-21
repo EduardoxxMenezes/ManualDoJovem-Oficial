@@ -1,0 +1,32 @@
+#container {
+  background-color: #f8fafc;
+}
+
+#botoes {
+  background-color: rgb(134, 204, 248);
+}
+
+button {
+  color: white;
+}
+
+#entrarConta {
+  background-color: #3b82f6;
+}
+
+#criarConta {
+  background-color: #10b981;
+}
+
+#footer {
+  background-color: black;
+  color: white;
+}
+
+#titulo, h1 {
+  color: #1e40af;
+}
+
+#breveDescricao, h3, p {
+  color: #334155;
+}

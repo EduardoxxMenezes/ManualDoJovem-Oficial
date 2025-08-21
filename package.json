@@ -1,0 +1,46 @@
+{
+  "name": "projeto-integracao",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "postbuild": "npx typeorm-ts-node-commonjs migration:run -d dist/config/data-source.js",
+    "start": "cross-env NODE_ENV=production node dist/server.js",
+    "dev": "npx ts-node-dev src/server.ts",
+    "migrate": "npx tmh run",
+    "migrate:revert": "npx tmh revert",
+    "migrate:generate": "npx tmh generate new-migration_"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "axios": "^1.10.0",
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.14.1",
+    "nodemailer": "^7.0.5",
+    "pg": "^8.16.3",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.25"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cookie-parser": "^1.4.9",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.0.4",
+    "@types/nodemailer": "^6.4.17",
+    "cross-env": "^7.0.3",
+    "ts-node-dev": "^2.0.0",
+    "typeorm-migration-helper": "^1.0.2",
+    "typescript": "^5.8.3"
+  }
+}

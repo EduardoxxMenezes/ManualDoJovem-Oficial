@@ -1,0 +1,95 @@
+.container {
+  margin-top: 20px;
+}
+
+#articlesContainer {
+  width: 100%;
+  height: 90%;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.articleCard {
+  margin-top: 10px;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #d9d9d9;
+  width: 350px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  background: linear-gradient(145deg, #f0f0f0, #d9d9d9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), inset 0 1px 3px rgba(255, 255, 255, 0.6);
+}
+
+.articleCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15), inset 0 1px 3px rgba(255, 255, 255, 0.7);
+}
+
+.articleCard h3 {
+  margin: 0;
+  font-size: 20px;
+  text-align: left;
+  color: #000000;
+  font-weight: 600;
+}
+
+.articleCard p {
+  margin: 5px 0;
+  font-size: 14px;
+  text-align: left;
+  color: #000000;
+}
+
+.articleCard .author {
+  text-align: right;
+  font-size: 12px;
+  color: #000000;
+}
+
+
+@keyframes cardHover {
+  from {
+    width: 90%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+#backFigure {
+  height: 51px;
+}
+
+/* #createBtn {
+  width: 75px;
+  height: 75px;
+  bottom: 80px;
+  right: 15px;
+  border-radius: 200px;
+  display: flex;
+  position: fixed;
+  background-color: transparent;
+  background-image: url("../img/pena.png");
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 100;
+} */
+
+#articleLink {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    flex-direction: column;
+  }
+  .articleCard {
+    width: 100%;
+  }
+}
