@@ -56,6 +56,27 @@ async function handleLogin(event) {
 }
 
 // ==========================
+// Logout
+// ==========================
+function handleLogout() {
+    localStorage.removeItem("userId");
+    localStorage.removeItem("token");
+    localStorage.removeItem("newPicture");
+    window.location.href = "../index.html";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const logoutLinks = document.querySelectorAll('a[href="../index.html"]');
+    logoutLinks.forEach(link => {
+        link.addEventListener("click", (event) => {
+            event.preventDefault();
+            handleLogout();
+        });
+    });
+});
+
+// ==========================
 // Evento
 // ==========================
 if (loginForm) loginForm.addEventListener("submit", handleLogin);
+

@@ -26,50 +26,43 @@ const getUserId = () => localStorage.getItem("userId");
 
 function updatePreviewImage(src) {
     if (image) image.src = src;
-    localStorage.setItem("newPicture", src);
 }
 
 // ==========================
 // Inicialização do perfil
 // ==========================
 window.addEventListener("DOMContentLoaded", async () => {
-    const saved = localStorage.getItem("newPicture");
     const userNameInput = document.getElementById("nameChange");
     const userEmailInput = document.getElementById("emailChange");
 
-    if (saved) {
-        newPicture = saved;
+    try {
+        const res = await fetch(`http://localhost:3000/api/user/${getUserId()}`, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${getToken()}`
+            },
+            credentials: "include",
+        });
+
+        if (!res.ok) { throw new Error("Erro ao carregar usuário") }
+
+        const user = await res.json();
+        newPicture = user.profilePic || fotoPadrao;
         updatePreviewImage(newPicture);
-    } else {
-        try {
-            const res = await fetch(`http://localhost:3000/api/user/${getUserId()}`, {
-                headers: {   
-                    "Content-Type": "application/json", 
-                    "Authorization": `Bearer ${getToken()}` 
-                },
-                credentials: "include",
-            });
 
-            const user = await res.json();
-            newPicture = user.profilePic || fotoPadrao;
-            updatePreviewImage(newPicture);
-
-            // Aqui você preenche os inputs com os valores do usuário
-            if (userNameInput) userNameInput.value = user.userName || "";
-            if (userEmailInput) userEmailInput.value = user.userEmail || "";
-
-             if (!res.ok){ throw new Error("Erro ao carregar usuário")}
-        } catch {
-            updatePreviewImage(fotoPadrao);
-        }
+        if (userNameInput) userNameInput.value = user.userName || "";
+        if (userEmailInput) userEmailInput.value = user.userEmail || "";
+    } catch {
+        updatePreviewImage(fotoPadrao);
     }
 });
+
 
 // ==========================
 // Eventos de drag/drop
 // ==========================
-function onEnter() { form.classList.add("active"); }
-function onLeave() { form.classList.remove("active"); }
+function onEnter() { if (form) form.classList.add("active"); }
+function onLeave() { if (form) form.classList.remove("active"); }
 
 if (form) {
     ["dragenter", "drop", "dragend", "dragleave"].forEach(event =>
@@ -94,7 +87,9 @@ if (input) {
         const reader = new FileReader();
         reader.onload = (e) => {
             newPicture = e.target.result;
+            localStorage.setItem("newPicture", newPicture)
             updatePreviewImage(newPicture);
+
 
             const oldImg = document.querySelector("#cover");
             if (oldImg && dropzone) dropzone.removeChild(oldImg);
@@ -114,12 +109,9 @@ if (input) {
 // Remover foto de perfil
 // ==========================
 function removePicture() {
-    if (image.src.includes("fotoPadrao.png")) {
-        updatePreviewImage(newPicture);
-    } else {
-        newPicture = fotoPadrao;
-        updatePreviewImage(fotoPadrao);
-    }
+    newPicture = fotoPadrao;
+    localStorage.setItem("newPicture", newPicture)
+    updatePreviewImage(fotoPadrao);
 }
 
 // ==========================
@@ -130,28 +122,28 @@ if (saveBtn) {
         e.preventDefault();
 
         const profilePic = localStorage.getItem("newPicture");
-        const userName = document.querySelector("#nameChange")?.value; 
-        const userEmail = document.querySelector("#emailChange")?.value; 
+        const userName = document.querySelector("#nameChange")?.value;
+        const userEmail = document.querySelector("#emailChange")?.value;
 
         try {
             const res = await fetch(`http://localhost:3000/api/user/${getUserId()}`, {
                 method: 'PUT',
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${getToken()}` 
+                    "Authorization": `Bearer ${getToken()}`
                 },
                 credentials: "include",
-                body: JSON.stringify({ 
-                    userName: userName, 
+                body: JSON.stringify({
+                    userName: userName,
                     userEmail: userEmail,
-                    profilePic: profilePic 
+                    profilePic: profilePic
                 })
 
             });
 
             if (!res.ok) throw new Error("Erro ao atualizar usuário");
-            if(res.ok){
-                 alert("Informações atualizadas com sucesso!");
+            if (res.ok) {
+                alert("Informações atualizadas com sucesso!");
             }
         } catch (error) {
             console.error(error);
@@ -181,10 +173,10 @@ if (confirmDelete) {
             });
 
             if (!res.ok) throw new Error("Erro ao deletar usuário");
-            if(res.ok){
+            if (res.ok) {
 
-            alert("Usuário deletado com sucesso!");
-            window.location.href = "../index.html";
+                alert("Usuário deletado com sucesso!");
+                window.location.href = "../index.html";
             }
         } catch (error) {
             console.error(error);
